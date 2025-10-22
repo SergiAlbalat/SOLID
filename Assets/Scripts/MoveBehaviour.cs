@@ -12,4 +12,8 @@ public class MoveBehaviour : MonoBehaviour
     {
         _rb.linearVelocity = direction.normalized * speed;
     }
+    public void Jump()
+    {
+
+    }
 }

@@ -21,7 +21,7 @@ public class Player : Character, InputSystem_Actions.IPlayerActions
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        
+        _mb.MoveCharacter(new Vector2(transform.position.x, transform.position.y+10));
     }
 
     public void OnMove(InputAction.CallbackContext context)
