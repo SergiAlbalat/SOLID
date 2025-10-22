@@ -3,48 +3,29 @@ using UnityEngine.InputSystem;
 
 public class Player : Character, InputSystem_Actions.IPlayerActions
 {
-    public void OnAttack(InputAction.CallbackContext context)
+    private InputSystem_Actions _actions;
+    private void Awake()
     {
-        throw new System.NotImplementedException();
+        base.Awake();
+        _actions = new InputSystem_Actions();
+        _actions.Player.SetCallbacks(this);
     }
-
-    public void OnCrouch(InputAction.CallbackContext context)
+    private void OnEnable()
     {
-        throw new System.NotImplementedException();
+        _actions.Enable();
     }
-
-    public void OnInteract(InputAction.CallbackContext context)
+    private void OnDisable()
     {
-        throw new System.NotImplementedException();
+        _actions.Disable();
     }
-
+    
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnNext(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnPrevious(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
+        _mb.MoveCharacter(context.ReadValue<Vector2>());
     }
 }
